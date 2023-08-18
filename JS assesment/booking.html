@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+            background-color: rgb(207, 188, 225);
+        }
+        h1{
+            text-align: center;
+            font-size: 40px;
+        }
+      
+        #booking{
+            text-align: center;
+            padding: 20px;
+            height: auto;
+            width: 50%;
+            margin: auto;
+            border: 2px solid black;
+        }
+       
+        #bookingType{
+            background-color: cadetblue;
+            font-size: 15px;
+            padding: 5px;
+            width: 30.5%;
+            margin-right: 10px;
+        }
+        option{
+            background-color: rgb(159, 157, 160);
+        }
+        label{
+            font-size: 18px;
+            padding: 25px;
+            
+        }
+        select{
+            text-align: center;
+            height: 30px;
+            margin: 5px;
+            width: 30%;
+        }
+        input{
+            text-align: center;
+            height: 20px;
+            margin: 5px;
+            width: 30%;
+        }
+        #username{
+            margin-left: 52px;
+        }
+        #mobilenumber{
+            margin-left: 20px;
+        }
+        #email{
+            margin-left: 93px;
+        }
+        #noOfPersons{
+            margin-left: 35px;
+        }
+        #date{
+            background-color: cadetblue;
+            font-size: 17px;
+            height: 25px;
+            margin-left: 100px;
+        }
+        #slot{
+            background-color: cadetblue;
+            font-size: 17px;
+            height: 25px;
+            width: 30.5%;
+            margin-left: 103px;
+        }
+        #time{
+            margin-left: 95px;
+        }
+        #submit {
+            margin-top: 20px;
+            height: 30px;
+            font-size: 17px;
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            font-weight: bold;
+            width: 20%;
+            background-color: coral;
+        }
+    </style>
+</head>
+<body>
+    <h1> Restaurant Booking Form</h1>
+    <form id="booking">
+        <label for="">Choice of Booking</label>
+        <select name="" id="bookingType" onchange="updateForm()">
+            <option value="fullDay">Full Day Booking</option>
+            <option value="halfDay">Half Day Booking</option>
+            <option value="hourly">Hourly Booking</option>
+        </select>
+        <br>
+
+        <label for="">User Name</label>
+        <input type="text" id="username" required>
+        <br>
+
+        <label for="">Mobile Number</label>
+        <input type="tel" id="mobilenumber" required>
+        <br>
+
+        <label for="">Email</label>
+        <input type="email" id="email" required>
+        <br>
+
+        <label for="">No. of person</label>
+        <input type="number" id="noOfPersons" required>
+        <br>
+
+        <label for="">Date</label>
+        <input type="date" id="date" required>
+        <br>
+
+        <div id="mainSlot">
+            <label for="">Slot</label>
+            <select name="slot" id="slot">
+            <option value="breakfast">Breakfast</option>
+            <option value="lunch">Lunch</option>
+            <option value="dinner">Dinner</option>
+        </select>
+        </div>
+
+        <div id="mainTime">
+            <label for="">Time</label>
+            <input type="text" id="time" required>
+        </div>
+
+        <input type="submit" id = "submit" value="book-now">
+    </form>
+</body>
+
+    <script>
+        function updateForm()
+        {
+            var bookingType = document.getElementById("bookingType").value;
+            var mainSlot = document.getElementById("mainSlot");
+            var mainTime = document.getElementById("mainTime");
+
+            mainSlot.style.display = "none";
+            mainTime.style.display = "none";
+
+            if(bookingType == "halfDay")
+            {
+                mainSlot.style.display = "block";
+                mainTime.style.display = "none";
+            }
+            else if(bookingType == "hourly")
+            {
+                mainSlot.style.display = "none";
+                mainTime.style.display = "block";
+            }
+        }
+    </script>
+</html>
